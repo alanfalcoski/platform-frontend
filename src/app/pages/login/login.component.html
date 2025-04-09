@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="login-box">
+    <div class="left-panel">
+      <img src="lock-illustration.png" alt="Login Illustration" />
+    </div>
+    
+    <div class="right-panel">
+      <h2>Olá!<br><span>Seja bem-vindo de volta.</span></h2>
+      <div class="google-login-wrapper">
+        <button type="button" class="google-login-btn" (click)="loginWith('google')">
+          <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" />
+          <span>Faça login com Google</span>
+        </button>
+        <button type="button" class="google-login-btn" (click)="loginWith('microsoft')">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" alt="Microsoft logo" />
+          <span>Login com Microsoft</span>
+        </button>
+      </div>
+    </div> <!-- ← estava sem fechamento -->
+  </div>
+</div>
