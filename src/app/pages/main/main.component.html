@@ -1,20 +1,38 @@
-<aside class="sidebar" [class.collapsed]="isCollapsed">
-  <div class="profile" *ngIf="!isCollapsed">
-    <img [src]="picture">
-    <div class="profile-text">
-      <h3>Olá, {{ name }}!</h3>
-      <h6>{{ email }}</h6>
-    </div>
+<div class="main-layout">
+  <aside class="sidebar">
+    <button (click)="openSubmenu('notificacoes')">🔔</button>
+    <button (click)="openSubmenu('favoritos')">⭐</button>
+    <button (click)="openSubmenu('perfil')">👤</button>
+  </aside>
+
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
 
-  <nav class="menu">
-    <a routerLink="/dashboard" (click)="toggleSidebar()" routerLinkActive="active">
-      📊 <span *ngIf="!isCollapsed">Dashboard</span>
-    </a>
-    <a routerLink="/perfil" (click)="toggleSidebar()" routerLinkActive="active">
-      👤 <span *ngIf="!isCollapsed">Perfil</span>
-    </a>
-  </nav>
+  <aside class="submenu-drawer" *ngIf="submenuAberto">
+    <div class="submenu-header">
+      <button (click)="fecharSubmenu()">←</button>
+      <span>Menu</span>
+    </div>
+    
+    <div class="submenu-content">
+      <ng-container [ngSwitch]="submenuAberto">
+        <div *ngSwitchCase="'notificacoes'">
+          <!-- notificações -->
+          <p>🔔 Atualização efetuada com sucesso...</p>
+          <a href="#">Visualizar todas as notificações</a>
+        </div>
 
-  <button class="logout-btn" *ngIf="!isCollapsed" (click)="logout()">Sair</button>
-</aside>
+        <div *ngSwitchCase="'favoritos'">
+          <!-- favoritos -->
+          <p>⭐ Favoritos em breve...</p>
+        </div>
+
+        <div *ngSwitchCase="'perfil'">
+          <!-- perfil -->
+          <p>👤 Bem-vindo, {{name}}</p>
+        </div>
+      </ng-container>
+    </div>
+  </aside>
+</div>
