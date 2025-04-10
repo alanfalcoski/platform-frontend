@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthService } from '../../auth.service';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -22,14 +22,11 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent{
-  constructor(
-    private authService: AuthService
-  ) {}
+  constructor(private auth: AuthenticationService
+  ) {
+  }
 
-  loginWith(provider: 'google' | 'microsoft') {
-    console.log('loginWith');
-    localStorage.setItem('auth_provider', provider); // persistir escolha do usuário
-    this.authService.configureAuth(provider);
-    this.authService.login();
+  login(){
+    this.auth.login();
   }
 }

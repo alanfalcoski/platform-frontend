@@ -5,8 +5,26 @@
     background-color: #f4f6f9;
   }
   
+  
   .sidebar {
     width: 260px;
+    transition: width 0.3s ease;
+    &.collapsed {
+      width: 80px;
+  
+      .profile,
+      .logout-btn {
+        display: none;
+      }
+  
+      .menu a {
+        justify-content: center;
+  
+        span {
+          display: none;
+        }
+      }
+    }
     background: #2f3e4d; // azul acinzentado corporativo
     color: #ffffff;
     padding: 30px 20px;
@@ -19,29 +37,45 @@
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
   }
   
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    cursor: pointer;
+  
+    &:hover {
+      color: #7e57c2;
+    }
+  }
   .profile {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
   
     img {
-      width: 90px;
-      height: 90px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       border: 3px solid #ffffff;
-      margin-bottom: 10px;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
     }
   
-    h3 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 600;
-      margin-top: 5px;
-    }
+    .profile-text {
+      h3 {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 600;
+      }
   
-    p {
-      font-size: 13px;
-      color: #cfd8dc;
-      margin-top: 2px;
+      h6 {
+        font-size: 12px;
+        color: #cfd8dc;
+        margin: 5px 0 0 0;
+      }
     }
   }
   
@@ -61,7 +95,7 @@
   
       &:hover,
       &.active {
-        background-color: #3e4c59;
+        background-color: #7e57c2;
       }
   
       span {
@@ -102,3 +136,32 @@
     margin-left: -20px; // suaviza a transição com a sidebar curva
   }
   
+  .submenu-drawer {
+    width: 300px;
+    background-color: #2f3e4d;
+    color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submenu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  
+    button {
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }

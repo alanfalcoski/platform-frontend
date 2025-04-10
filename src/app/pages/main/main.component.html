@@ -1,25 +1,20 @@
-<div class="main-layout">
-    <aside class="sidebar">
-      <div class="profile">
-        <img [src]="user?.['picture']" alt="Foto de Perfil" />
-        <h3>{{ user?.['name'] }}</h3>
-        <p>{{ user?.['email'] }}</p>
-      </div>
-  
-      <nav class="menu">
-        <a routerLink="/dashboard" routerLinkActive="active">
-          <span>📊 Dashboard</span>
-        </a>
-        <a routerLink="/perfil" routerLinkActive="active">
-          <span>👤 Perfil</span>
-        </a>
-      </nav>
-  
-      <button class="logout-btn" (click)="logout()">Sair</button>
-    </aside>
-  
-    <main class="content">
-      <router-outlet></router-outlet>
-    </main>
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="profile" *ngIf="!isCollapsed">
+    <img [src]="picture">
+    <div class="profile-text">
+      <h3>Olá, {{ name }}!</h3>
+      <h6>{{ email }}</h6>
+    </div>
   </div>
-  
+
+  <nav class="menu">
+    <a routerLink="/dashboard" (click)="toggleSidebar()" routerLinkActive="active">
+      📊 <span *ngIf="!isCollapsed">Dashboard</span>
+    </a>
+    <a routerLink="/perfil" (click)="toggleSidebar()" routerLinkActive="active">
+      👤 <span *ngIf="!isCollapsed">Perfil</span>
+    </a>
+  </nav>
+
+  <button class="logout-btn" *ngIf="!isCollapsed" (click)="logout()">Sair</button>
+</aside>
