@@ -114,7 +114,7 @@ import { MenuItem, MenuModulo } from '../../services/menu/menu.interface';
           return 'attach_money';
         case 'construção':
           return 'engineering';
-        case 'rh':
+        case 'recursos humanos':
           return 'people';
         case 'ti':
           return 'computer';
