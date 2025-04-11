@@ -1,167 +1,88 @@
-.main-layout {
-    display: flex;
-    height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6f9;
-  }
-  
-  
-  .sidebar {
-    width: 260px;
-    transition: width 0.3s ease;
-    &.collapsed {
-      width: 80px;
-  
-      .profile,
-      .logout-btn {
-        display: none;
-      }
-  
-      .menu a {
-        justify-content: center;
-  
-        span {
-          display: none;
-        }
-      }
-    }
-    background: #2f3e4d; // azul acinzentado corporativo
-    color: #ffffff;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .toggle-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    align-self: flex-start;
-    margin-bottom: 20px;
-    cursor: pointer;
-  
-    &:hover {
-      color: #7e57c2;
-    }
-  }
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-  
-    img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 3px solid #ffffff;
-      box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    }
-  
-    .profile-text {
-      h3 {
-        font-size: 16px;
-        margin: 0;
-        font-weight: 600;
-      }
-  
-      h6 {
-        font-size: 12px;
-        color: #cfd8dc;
-        margin: 5px 0 0 0;
-      }
-    }
-  }
-  
-  .menu {
-    margin-top: 40px;
-    width: 100%;
-  
-    a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: #ffffff;
-      padding: 10px 16px;
-      margin-bottom: 12px;
-      border-radius: 10px;
-      transition: background-color 0.2s ease;
-  
-      &:hover,
-      &.active {
-        background-color: #7e57c2;
-      }
-  
-      span {
-        font-size: 14px;
-        margin-left: 10px;
-      }
-  
-      svg {
-        width: 18px;
-        height: 18px;
-      }
-    }
-  }
-  
-  .logout-btn {
-    padding: 8px 20px;
-    border: 1px solid #ffffff;
-    background: transparent;
-    color: #ffffff;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-weight: 500;
-    margin-top: 50px;
-  
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-  }
-  
-  .content {
-    flex: 1;
-    padding: 40px;
-    background: #ffffff;
-    overflow-y: auto;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-    margin-left: -20px; // suaviza a transição com a sidebar curva
-  }
-  
-  .submenu-drawer {
-    width: 300px;
-    background-color: #2f3e4d;
-    color: white;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .submenu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  
-    button {
-      background: transparent;
-      color: white;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
-  }
+.layout {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+/* Menu principal */
+.sidebar {
+  background-color: #3e4f60;
+  color: white;
+  padding: 20px;
+  width: 200px;
+  transition: width 0.1s ease;
+}
+
+.sidebar.collapsed {
+  width: 20px;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #f0f0f0;         /* tom de branco mais suave */
+  margin: 10px 0;
+  font-size: 14px;        /* reduzido para parecer mais discreto */
+  font-weight: 400;       /* regular */
+  letter-spacing: 0.2px;  /* leve espaçamento */
+  font-family: 'Segoe UI', 'Roboto', sans-serif;  /* fontes parecidas com a imagem */
+  cursor: pointer;
+}
+.menu-btn.ativo {
+  background-color: #3e4f60; /* igual ao submenu */
+  color: #ffffff;
+  border-radius: 8px 0 0 8px;
+}
+.menu-btn span {
+  margin-left: 8px;
+}
+
+/* Submenu ao lado do principal */
+.submenu {
+  background-color: #2f3e4d;
+  color: white;
+  font-size: 14px;        /* reduzido para parecer mais discreto */
+  font-weight: 400;       /* regular */
+  letter-spacing: 0.2px;  /* leve espaçamento */
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  padding: 20px;
+  width: 240px;
+  transition: all 0.3s ease;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  flex-grow: 1;
+  background-color: #f4f6f9;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: #3e4f60;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.profile .img img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffffff55;
+}
+
+.profile-text h6 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}

@@ -1,38 +1,38 @@
-<div class="main-layout">
+<div class="layout">
+  <!-- Sidebar de Módulos -->
   <aside class="sidebar">
-    <button (click)="openSubmenu('notificacoes')">🔔</button>
-    <button (click)="openSubmenu('favoritos')">⭐</button>
-    <button (click)="openSubmenu('perfil')">👤</button>
+    <!-- Sempre mostra todos os domínios (nível 1) -->
+    <ng-container *ngFor="let menu of allMenus">
+      <button 
+        class="menu-btn" 
+        [class.ativo]="menuStack[0]?.label === menu.domain" 
+        (click)="abrirModulo(menu)">
+        <mat-icon>folder</mat-icon>
+        <span>{{ menu.domain }}</span>
+      </button>
+    </ng-container>
+  </aside>
+  
+  <!-- Submenus -->
+  <aside class="submenu" *ngIf="menuStack.length > 0">
+    <div class="menu-header">
+      <button *ngIf="menuStack.length > 1" (click)="voltar()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <span>{{ tituloMenu }}</span>
+    </div>
+
+    <ul>
+      <li *ngFor="let item of currentSubMenuItems">
+        <button (click)="handleClickMenu(item)">
+          {{ item.label }}
+        </button>
+      </li>
+    </ul>
   </aside>
 
-  <div class="content">
-    <router-outlet></router-outlet>
-  </div>
-
-  <aside class="submenu-drawer" *ngIf="submenuAberto">
-    <div class="submenu-header">
-      <button (click)="fecharSubmenu()">←</button>
-      <span>Menu</span>
-    </div>
-    
-    <div class="submenu-content">
-      <ng-container [ngSwitch]="submenuAberto">
-        <div *ngSwitchCase="'notificacoes'">
-          <!-- notificações -->
-          <p>🔔 Atualização efetuada com sucesso...</p>
-          <a href="#">Visualizar todas as notificações</a>
-        </div>
-
-        <div *ngSwitchCase="'favoritos'">
-          <!-- favoritos -->
-          <p>⭐ Favoritos em breve...</p>
-        </div>
-
-        <div *ngSwitchCase="'perfil'">
-          <!-- perfil -->
-          <p>👤 Bem-vindo, {{name}}</p>
-        </div>
-      </ng-container>
-    </div>
-  </aside>
+  <!-- Conteúdo principal -->
+  <main class="conteudo">
+    <!-- conteúdo da página -->
+  </main>
 </div>

@@ -1,0 +1,72 @@
+{
+    "domain": "Recursos Humanos",
+    "service": "pessoas",
+    "menu":{
+        "id" : "mydomain/myservice/sample-management",
+        "label":"Recursos Humanos",
+        "labelI18n":"platform.backend.my_domain_sample_management",
+        "children":[
+            {
+                "id" : "mydomain/myservice/level01",
+                "label":"Nivel 1 - A",
+                "labelI18n":"platform.backend.my_domain_my_service_level1",
+                "auth":{
+                    "resource":"res://senior.com.br/security/usermanager/usuario",
+                    "permission":"Consultar"
+                },
+                "children":[
+                    {
+                        "id" : "mydomain/myservice/level02",
+                        "label":"Nivel 2",
+                        "labelI18n":"platform.backend.my_domain_my_service_level2",
+                        "auth":{
+                            "resource":"res://senior.com.br/security/usermanager/usuario",
+                            "permission":"Consultar"
+                        }
+                    }
+                ]
+            },
+            {
+                "id" : "mydomain/myservice/dashboards",
+                "label":"Nivel 1 - B",
+                "labelI18n":"platform.backend.my_domain_my_service_dashboards",
+                "auth":{
+                    "resource":"res://senior.com.br/security/usermanager/usuario",
+                    "permission":"Consultar"
+                },
+                "children":[
+                    {
+                        "id" : "mydomain/myservice/dash01",
+                        "label":"Nivel 2",
+                        "labelI18n":"platform.backend.my_domain_my_service_dash1",
+                        "path":{
+                            "category":"Holerites",
+                            "menuId":"https://meuservidor.com.br/frontend/dashboard"
+                        },
+                        "auth":{
+                            "resource":"res://senior.com.br/security/usermanager/usuario",
+                            "permission":"Consultar"
+                        }
+                    },
+                    {
+                        "id" : "mydomain/myservice/dash02",
+                        "label":"Nivel 2",
+                        "labelI18n":"platform.backend.my_domain_my_service_dash2",
+                        "path":{
+                            "category":"CurrentTab",
+                            "menuId":"https://meuservidor.com.br/frontend/tela"
+                        },
+                        "auth":{
+                            "resource":"res://senior.com.br/security/usermanager/usuario",
+                            "permission":"Consultar"
+                        },
+                        "help" : {
+                          "url" : "http://documentacao.senior.com.br/",
+                            "context" : "gestaoempresarialerp/7.0.0/"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
