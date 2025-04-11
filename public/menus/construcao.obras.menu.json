@@ -8,7 +8,7 @@
         "children":[
             {
                 "id" : "mydomain/myservice/level01",
-                "label":"Nivel 1 - A",
+                "label":"Obras",
                 "labelI18n":"platform.backend.my_domain_my_service_level1",
                 "auth":{
                     "resource":"res://senior.com.br/security/usermanager/usuario",
@@ -17,27 +17,16 @@
                 "children":[
                     {
                         "id" : "mydomain/myservice/level02",
-                        "label":"Nivel 2",
+                        "label":"Acompanhamento de obras",
                         "labelI18n":"platform.backend.my_domain_my_service_level2",
                         "auth":{
                             "resource":"res://senior.com.br/security/usermanager/usuario",
                             "permission":"Consultar"
                         }
-                    }
-                ]
-            },
-            {
-                "id" : "mydomain/myservice/dashboards",
-                "label":"Nivel 1 - B",
-                "labelI18n":"platform.backend.my_domain_my_service_dashboards",
-                "auth":{
-                    "resource":"res://senior.com.br/security/usermanager/usuario",
-                    "permission":"Consultar"
-                },
-                "children":[
+                    },
                     {
                         "id" : "mydomain/myservice/dash01",
-                        "label":"Nivel 2",
+                        "label":"Orçamentos",
                         "labelI18n":"platform.backend.my_domain_my_service_dash1",
                         "path":{
                             "category":"Dashboard",
@@ -50,7 +39,7 @@
                     },
                     {
                         "id" : "mydomain/myservice/dash02",
-                        "label":"Nivel 2",
+                        "label":"Projetos",
                         "labelI18n":"platform.backend.my_domain_my_service_dash2",
                         "path":{
                             "category":"CurrentTab",

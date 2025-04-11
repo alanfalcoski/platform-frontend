@@ -11,7 +11,8 @@ export class MenuService {
   private menuPaths = [
     'menus/construcao.financeiro.menu.json',
     'menus/construcao.obras.menu.json',
-    'menus/rh.pessoas.menu.json'
+    'menus/rh.pessoas.menu.json',
+    'menus/rh.folha.menu.json'
   ];
 
   private menuStack: MenuModulo[] = [];

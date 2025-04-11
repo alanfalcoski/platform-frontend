@@ -1,14 +1,14 @@
 {
     "domain": "Recursos Humanos",
-    "service": "pessoas",
+    "service": "folha",
     "menu":{
         "id" : "mydomain/myservice/sample-management",
-        "label":"Pessoas",
+        "label":"Folha",
         "labelI18n":"platform.backend.my_domain_sample_management",
         "children":[
             {
                 "id" : "mydomain/myservice/level01",
-                "label":"Pessoas",
+                "label":"Folha",
                 "labelI18n":"platform.backend.my_domain_my_service_level1",
                 "auth":{
                     "resource":"res://senior.com.br/security/usermanager/usuario",
@@ -17,7 +17,7 @@
                 "children":[
                     {
                         "id" : "mydomain/myservice/level02",
-                        "label":"Feedbacks",
+                        "label":"Holerites",
                         "labelI18n":"platform.backend.my_domain_my_service_level2",
                         "auth":{
                             "resource":"res://senior.com.br/security/usermanager/usuario",
@@ -26,11 +26,11 @@
                     },
                     {
                         "id" : "mydomain/myservice/level02",
-                        "label":"Analytics",
+                        "label":"Férias",
                         "labelI18n":"platform.backend.my_domain_my_service_level2",
                         "auth":{
                             "resource":"res://senior.com.br/security/usermanager/usuario",
-                            "permission":"Consultar"
+                            "permission":"Consultar"    
                         }
                     }
                 ]

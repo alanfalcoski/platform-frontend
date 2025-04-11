@@ -8,7 +8,7 @@
         "children":[
             {
                 "id" : "mydomain/myservice/level01",
-                "label":"Nivel 1 - A",
+                "label":"Financeiro",
                 "labelI18n":"platform.backend.my_domain_my_service_level1",
                 "auth":{
                     "resource":"res://senior.com.br/security/usermanager/usuario",
@@ -17,70 +17,24 @@
                 "children":[
                     {
                         "id" : "mydomain/myservice/level02",
-                        "label":"Nivel 2",
+                        "label":"Carteira de recebíveis",
                         "labelI18n":"platform.backend.my_domain_my_service_level2",
-                        "auth":{
-                            "resource":"res://senior.com.br/security/usermanager/usuario",
-                            "permission":"Consultar"
-                        }
-                    }
-                ]
-            },
-            {
-                "id" : "mydomain/myservice/dashboards",
-                "label":"Nivel 1 - B",
-                "labelI18n":"platform.backend.my_domain_my_service_dashboards",
-                "auth":{
-                    "resource":"res://senior.com.br/security/usermanager/usuario",
-                    "permission":"Consultar"
-                },
-                "children":[
-                    {
-                        "id" : "mydomain/myservice/dash01",
-                        "label":"Nivel 2",
-                        "labelI18n":"platform.backend.my_domain_my_service_dash1",
-                        "path":{
-                            "category":"Dashboard",
-                            "menuId":"https://meuservidor.com.br/frontend/dashboard"
-                        },
                         "auth":{
                             "resource":"res://senior.com.br/security/usermanager/usuario",
                             "permission":"Consultar"
                         }
                     },
                     {
-                        "id" : "mydomain/myservice/dash02",
-                        "label":"Nivel 2",
-                        "labelI18n":"platform.backend.my_domain_my_service_dash2",
-                        "path":{
-                            "category":"CurrentTab",
-                            "menuId":"https://meuservidor.com.br/frontend/tela"
-                        },
-                        "auth":{
-                            "resource":"res://senior.com.br/security/usermanager/usuario",
-                            "permission":"Consultar"
-                        },
-                        "help" : {
-                          "url" : "http://documentacao.senior.com.br/",
-                            "context" : "gestaoempresarialerp/7.0.0/"
-                        }
-                    }
-                ]
-            },
-            {
-                "label":"Nivel 1 - C",
-                "children":[
-                    {
-                        "label":"Level 2",
+                        "label":"Multi-nível",
                         "children":[
                             {
-                                "label":"Level 3",
+                                "label":"Level 1",
                                 "children":[
                                     {
-                                        "label":"Level4",
+                                        "label":"Level 2",
                                         "children":[
                                             {
-                                                "label":"Level 5",
+                                                "label":"Level 3",
                                                 "children":[
                                                     {
                                                         "label":"Congrats! You've made it"

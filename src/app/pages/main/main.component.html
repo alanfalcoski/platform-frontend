@@ -5,10 +5,9 @@
     <ng-container *ngFor="let menu of allMenus">
       <button 
         class="menu-btn" 
-        [class.ativo]="menuStack[0]?.label === menu.domain" 
+        [class.ativo]="menuStack[0]?.label === menu.menu.label"  
         (click)="abrirModulo(menu)">
-        <mat-icon>folder</mat-icon>
-        <span>{{ menu.domain }}</span>
+        <mat-icon>{{ getIconForDomain(menu.domain) }}</mat-icon>
       </button>
     </ng-container>
   </aside>
@@ -16,16 +15,17 @@
   <!-- Submenus -->
   <aside class="submenu" *ngIf="menuStack.length > 0">
     <div class="menu-header">
-      <button *ngIf="menuStack.length > 1" (click)="voltar()">
-        <mat-icon>arrow_back</mat-icon>
+      <button class="back-btn" (click)="voltar()">
+        <mat-icon>chevron_left</mat-icon>
       </button>
-      <span>{{ tituloMenu }}</span>
+      <span class="menu-title">{{ menuStack[menuStack.length - 1]?.label }}</span>
     </div>
-
-    <ul>
-      <li *ngFor="let item of currentSubMenuItems">
-        <button (click)="handleClickMenu(item)">
-          {{ item.label }}
+    
+    <ul class="menu-list">
+      <li *ngFor="let item of currentSubMenuItems" class="menu-item">
+        <button class="menu-button" (click)="handleClickMenu(item)">
+          <span class="menu-label">{{ item.label }}</span>
+          <mat-icon *ngIf="item.children?.length" class="menu-icon">chevron_right</mat-icon>
         </button>
       </li>
     </ul>

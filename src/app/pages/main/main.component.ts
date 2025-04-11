@@ -65,10 +65,19 @@ import { MenuItem, MenuModulo } from '../../services/menu/menu.interface';
     }
     
     abrirModulo(modulo: MenuModulo) {
-      this.moduloSelecionado = modulo;
-      this.menuStack = [modulo.menu];
-      this.currentSubMenuItems = modulo.menu.children || [];
+      // Se o módulo clicado já está aberto, fecha
+      if (this.menuStack.length > 0 && this.menuStack[0] === modulo.menu) {
+        this.menuStack = [];
+        this.currentSubMenuItems = [];
+        this.moduloSelecionado = undefined;
+      } else {
+        // Caso contrário, abre o módulo
+        this.moduloSelecionado = modulo;
+        this.menuStack = [modulo.menu];
+        this.currentSubMenuItems = modulo.menu.children || [];
+      }
     }
+    
   
     handleClickMenu(item: MenuItem) {
       if (item.children?.length) {
@@ -98,4 +107,20 @@ import { MenuItem, MenuModulo } from '../../services/menu/menu.interface';
     toggleExpand(menuLabel: string) {
       this.expandedMenus[menuLabel] = !this.expandedMenus[menuLabel];
     }
+
+    getIconForDomain(domain: string): string {
+      switch (domain.toLowerCase()) {
+        case 'financeiro':
+          return 'attach_money';
+        case 'construção':
+          return 'engineering';
+        case 'rh':
+          return 'people';
+        case 'ti':
+          return 'computer';
+        default:
+          return 'folder'; // Ícone padrão
+      }
+    }
+    
 }
